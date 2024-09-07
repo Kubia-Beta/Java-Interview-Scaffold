@@ -11,24 +11,36 @@
  */
 
 public class Car {
-	private id: int
-	private make: str
-	private model: str
-	private year: date
-	private license: str
-	private category: str
-	private price: money
-	private available: bool
+	private int id;
+	private String make;
+	private String model;
+	private int year;
+	private String licensePlate;
+	private String category;
+	private double price; // FIXME: Change to Money data type
+	private boolean available;
+	
+	public Car(int id, String make, String model, int year, String licensePlate, String category, double price) {
+		this.id = id;
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.licensePlate = licensePlate;
+		this.category = category;
+		this.price = price;
+		this.available = true; // Initially available
+	}
 
-	setRented(ID){
-		
+	public void setRented(int ID){
+		this.available == false;
 	}
 	
-	setAvailable(ID){
-		
+	public void setAvailable(ID){
+		this.available == true;
 	}
 	
-	getCarInfo(ID){
-		
+	public String getCarInfo(ID){
+		return String.format("Car: %s %s (%d) - License: %s, Category: %s, Price: %.2f", 
+			make, model, year, licensePlate, category, price);
 	}
 }

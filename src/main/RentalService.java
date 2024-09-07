@@ -17,7 +17,7 @@ public class RentalService {
 	
 	// Cosntructor
 	public RentalService() {
-		this.cars = new ArrayList<>();
+		this.availableCars = new ArrayList<>();
 		this.customers = new ArrayList<>();
 		this.rentals = new ArrayList<>();
 	}

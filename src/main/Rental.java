@@ -34,7 +34,7 @@ public class Rental {
 	// Methods
 	public double evaluateFinalPrice(){ // https://stackoverflow.com/questions/33530011/java-easiest-way-to-subtract-dates
 		long daysElapsed = java.time.temporal.ChronoUnit.DAYS.between(rentalDate, endDate);
-		return daysElapsed * car.getPrice(); // FIXME: Change the function return to Money from Double
+		return daysElapsed * car.price(); // FIXME: Change the function return to Money from Double
 	}
 	
 	public void returnRental(){
@@ -44,6 +44,6 @@ public class Rental {
 	
 	public String getRentalInfo(){
 		return String.format("Rental ID: %d, Customer: %s, Car: %s, Rental Date:%s, Return Date: %s, Total Price: %.2f",
-			rentalId, customer.getName(), car.getInfo(), rentalDate.toString(), returnDate.toString(), totalPrice);
+			rentalId, customer.getName(), car.make, rentalDate.toString(), returnDate.toString(), totalPrice);
 	}
 }

@@ -87,7 +87,7 @@ public class Rental {
 	// Methods
 	public double evaluateFinalPrice(){ // https://stackoverflow.com/questions/33530011/java-easiest-way-to-subtract-dates
 		long daysElapsed = java.time.temporal.ChronoUnit.DAYS.between(rentalDate, endDate);
-		return daysElapsed * car.getPrice(); // FIXME: Change the function return to Money from Double
+		return daysElapsed * car.price(); // FIXME: Change the function return to Money from Double
 	}
 	
 	public void returnRental(){
@@ -108,7 +108,7 @@ public class RentalService {
 	
 	// Cosntructor
 	public RentalService() {
-		this.cars = new ArrayList<>();
+		this.availableCars = new ArrayList<>();
 		this.customers = new ArrayList<>();
 		this.rentals = new ArrayList<>();
 	}
@@ -124,7 +124,7 @@ public class RentalService {
 	
 	public Car getCarByID(int carID){
 		for (Car car : availableCars){
-			if (car.getID() == carID){
+			if (car.id() == carID){
 				return car;
 			}
 		}
@@ -161,24 +161,36 @@ public class RentalService {
 }
 
 public class Car {
-	private id: int
-	private make: str
-	private model: str
-	private year: date
-	private license: str
-	private category: str
-	private price: money
-	private available: bool
+	private int id;
+	private String make;
+	private String model;
+	private int year;
+	private String licensePlate;
+	private String category;
+	private double price; // FIXME: Change to Money data type
+	private boolean available;
+	
+	public Car(int id, String make, String model, int year, String licensePlate, String category, double price) {
+		this.id = id;
+		this.make = make;
+		this.model = model;
+		this.year = year;
+		this.licensePlate = licensePlate;
+		this.category = category;
+		this.price = price;
+		this.available = true; // Initially available
+	}
 
-	setRented(ID){
-		
+	public void setRented(int ID){
+		this.available == false;
 	}
 	
-	setAvailable(ID){
-		
+	public void setAvailable(ID){
+		this.available == true;
 	}
 	
-	getCarInfo(ID){
-		
+	public String getCarInfo(ID){
+		return String.format("Car: %s %s (%d) - License: %s, Category: %s, Price: %.2f", 
+			make, model, year, licensePlate, category, price);
 	}
 }
