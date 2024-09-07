@@ -11,31 +11,60 @@
  */
 
 public class RentalService {
-	private List<car> availableCars;
-	private list<customer> customers;
-	private List<rental> rentals;
+	private List<Car> availableCars;
+	private list<Customer> customers;
+	private List<Rental> rentals;
+	
+	// Cosntructor
+	public RentalService() {
+		this.cars = new ArrayList<>();
+		this.customers = new ArrayList<>();
+		this.rentals = new ArrayList<>();
+	}
 
-	addCar(car){
-		
+	// Methods
+	public void addCar(Car car){
+		availableCars.add(car);
 	}
 	
-	addCustomer(customer){
-		
+	public void addCustomer(customer){
+		customers.add(customer);
 	}
 	
-	getCarByID(ID){
-		
+	public Car getCarByID(int carID){
+		for (Car car : availableCars){
+			if (car.getID() == carID){
+				return car;
+			}
+		}
+		return null; // Not found
 	}
 	
-	getCustomerbyID(ID){
-		
+	public Customer getCustomerbyID(int customerID){
+		for (Customer customer : customers){
+			if (customer.customerID == customerID){
+				return customer;
+			}
+		}
+		return null; // Not found
 	}
 	
-	newRental(customer ID, car ID, startDate, returnDate){
-		
+	public void newRental(int customerID, int carID, LocalDate startDate, LocalDate returnDate){
+		Car car = findCarByID(carID);
+		Customer customer = getCustomerbyID(customerID);
+		if (car != null && car.available == true){
+			rentals.add(rental);
+			car.setRented();
+			customer.addRental(rental);
+		}
 	}
 	
-	endRental(rental ID){
-		
+	public void endRental(int rentalID){
+		for (Rental rental : rentals){
+			if (rental.getRentalID() == rentalID){
+				rental.returnCar();
+				return;
+			}
+		}
 	}
 }
