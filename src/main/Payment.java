@@ -25,11 +25,11 @@ public class Payment {
 	}
 	
 	// Methods
-	processPayment(){ // Placeholder payment logic
+	public void processPayment(){ // Placeholder payment logic
 		System.out.println("Payment of " + amount + " for rental ID " + rental.getRentalId() + " processed on " + paymentDate);
 	}
 	
-	getPaymentInfo() { // https://www.geeksforgeeks.org/java-string-format-method-with-examples/
+	public String getPaymentInfo() { // https://www.geeksforgeeks.org/java-string-format-method-with-examples/
 		return String.format("Payment ID: %d, Rental ID: %d, Amount: %.2f, Date: %s",
             paymentId, rental.getRentalId(), amount, paymentDate.toString());
 	}

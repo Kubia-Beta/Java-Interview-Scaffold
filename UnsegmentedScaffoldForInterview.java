@@ -25,11 +25,11 @@ public class Payment {
 	}
 	
 	// Methods
-	processPayment(){ // Placeholder payment logic
+	public void processPayment(){ // Placeholder payment logic
 		System.out.println("Payment of " + amount + " for rental ID " + rental.getRentalId() + " processed on " + paymentDate);
 	}
 	
-	getPaymentInfo() { // https://www.geeksforgeeks.org/java-string-format-method-with-examples/
+	public String getPaymentInfo() { // https://www.geeksforgeeks.org/java-string-format-method-with-examples/
 		return String.format("Payment ID: %d, Rental ID: %d, Amount: %.2f, Date: %s",
             paymentId, rental.getRentalId(), amount, paymentDate.toString());
 	}
@@ -90,21 +90,21 @@ public class Rental {
 		return daysElapsed * car.getPrice(); // FIXME: Change the function return to Money from Double
 	}
 	
-	returnRental(){
+	public void returnRental(){
 		car.setAvailable();
 		this.totalPrice = evaluateFinalPrice();
 	}
 	
-	getRentalInfo(){
+	public String getRentalInfo(){
 		return String.format("Rental ID: %d, Customer: %s, Car: %s, Rental Date:%s, Return Date: %s, Total Price: %.2f",
             rentalId, customer.getName(), car.getInfo(), rentalDate.toString(), returnDate.toString(), totalPrice);
     }
 }
 
 public class RentalService {
-	private List<car> availableCars;
-	private list<customer> customers;
-	private List<rental> rentals;
+	private List<Car> availableCars;
+	private list<Customer> customers;
+	private List<Rental> rentals;
 
 	addCar(car){
 		

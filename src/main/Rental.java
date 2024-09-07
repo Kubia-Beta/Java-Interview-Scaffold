@@ -37,12 +37,12 @@ public class Rental {
 		return daysElapsed * car.getPrice(); // FIXME: Change the function return to Money from Double
 	}
 	
-	returnRental(){
+	public void returnRental(){
 		car.setAvailable();
 		this.totalPrice = evaluateFinalPrice();
 	}
 	
-	getRentalInfo(){
+	public String getRentalInfo(){
 		return String.format("Rental ID: %d, Customer: %s, Car: %s, Rental Date:%s, Return Date: %s, Total Price: %.2f",
             rentalId, customer.getName(), car.getInfo(), rentalDate.toString(), returnDate.toString(), totalPrice);
     }
