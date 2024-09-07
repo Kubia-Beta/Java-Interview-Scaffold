@@ -1,7 +1,7 @@
 ////////////////////////////
-// By:                   //
-// Connor Sculthorpe    //
-// 06 August 2024      //
+// By:					 //
+// Connor Sculthorpe	//
+// 06 August 2024	   //
 // TO: 06 August 2024 //
 ///////////////////////
 
@@ -20,16 +20,16 @@ public class Rental {
 	private double finalPrice; // FIXME: Change to Money data type.
 	
 	// Constructor
-    public Rental(int rentalID, Customer customer, Car car, LocalDate startDate,
+	public Rental(int rentalID, Customer customer, Car car, LocalDate startDate,
 		LocalDate returnDate, LocalDate endDate) {
-        this.rentalID = rentalID;
-        this.customer = customer;
-        this.car = car;
-        this.rentalDate = rentalDate; // When the customer begins rental
-        this.returnDate = returnDate; // When the unit is returned
+		this.rentalID = rentalID;
+		this.customer = customer;
+		this.car = car;
+		this.rentalDate = rentalDate; // When the customer begins rental
+		this.returnDate = returnDate; // When the unit is returned
 		this.endDate = endDate; // When the customer returns the unit
-        this.totalPrice = evaluateFinalPrice();
-    }
+		this.totalPrice = evaluateFinalPrice();
+	}
 	
 	// Methods
 	public double evaluateFinalPrice(){ // https://stackoverflow.com/questions/33530011/java-easiest-way-to-subtract-dates
@@ -44,6 +44,6 @@ public class Rental {
 	
 	public String getRentalInfo(){
 		return String.format("Rental ID: %d, Customer: %s, Car: %s, Rental Date:%s, Return Date: %s, Total Price: %.2f",
-            rentalId, customer.getName(), car.getInfo(), rentalDate.toString(), returnDate.toString(), totalPrice);
-    }
+			rentalId, customer.getName(), car.getInfo(), rentalDate.toString(), returnDate.toString(), totalPrice);
+	}
 }

@@ -1,7 +1,7 @@
 ////////////////////////////
-// By:                   //
-// Connor Sculthorpe    //
-// 06 August 2024      //
+// By:					 //
+// Connor Sculthorpe	//
+// 06 August 2024	   //
 // TO: 06 August 2024 //
 ///////////////////////
 
@@ -31,7 +31,7 @@ public class Payment {
 	
 	public String getPaymentInfo() { // https://www.geeksforgeeks.org/java-string-format-method-with-examples/
 		return String.format("Payment ID: %d, Rental ID: %d, Amount: %.2f, Date: %s",
-            paymentId, rental.getRentalId(), amount, paymentDate.toString());
+			paymentId, rental.getRentalId(), amount, paymentDate.toString());
 	}
 }
 
@@ -44,23 +44,23 @@ public class Customer {
 	private List<Rental> rentalHistory;
 	
 	// Constructor
-    public Customer(int id, String name, String license, String phone, String email) {
-        this.id = id;
-        this.name = name;
-        this.licenseNumber = licenseNumber;
-        this.phone = phone;
-        this.email = email;
-        this.rentalHistory = new ArrayList<>();
-    }
+	public Customer(int id, String name, String license, String phone, String email) {
+		this.id = id;
+		this.name = name;
+		this.licenseNumber = licenseNumber;
+		this.phone = phone;
+		this.email = email;
+		this.rentalHistory = new ArrayList<>();
+	}
 
-    // Methods
-    public void addRental(Rental rental) {
-        rentalHistory.add(rental);
-    }
+	// Methods
+	public void addRental(Rental rental) {
+		rentalHistory.add(rental);
+	}
 
-    public List<Rental> getRentalInfo() {
-        return rentalHistory;
-    }
+	public List<Rental> getRentalInfo() {
+		return rentalHistory;
+	}
 }
 
 public class Rental {
@@ -73,16 +73,16 @@ public class Rental {
 	private double finalPrice; // FIXME: Change to Money data type.
 	
 	// Constructor
-    public Rental(int rentalID, Customer customer, Car car, LocalDate startDate,
+	public Rental(int rentalID, Customer customer, Car car, LocalDate startDate,
 		LocalDate returnDate, LocalDate endDate) {
-        this.rentalID = rentalID;
-        this.customer = customer;
-        this.car = car;
-        this.rentalDate = rentalDate; // When the customer begins rental
-        this.returnDate = returnDate; // When the unit is returned
+		this.rentalID = rentalID;
+		this.customer = customer;
+		this.car = car;
+		this.rentalDate = rentalDate; // When the customer begins rental
+		this.returnDate = returnDate; // When the unit is returned
 		this.endDate = endDate; // When the customer returns the unit
-        this.totalPrice = evaluateFinalPrice();
-    }
+		this.totalPrice = evaluateFinalPrice();
+	}
 	
 	// Methods
 	public double evaluateFinalPrice(){ // https://stackoverflow.com/questions/33530011/java-easiest-way-to-subtract-dates
@@ -97,16 +97,22 @@ public class Rental {
 	
 	public String getRentalInfo(){
 		return String.format("Rental ID: %d, Customer: %s, Car: %s, Rental Date:%s, Return Date: %s, Total Price: %.2f",
-            rentalId, customer.getName(), car.getInfo(), rentalDate.toString(), returnDate.toString(), totalPrice);
-    }
+			rentalId, customer.getName(), car.getInfo(), rentalDate.toString(), returnDate.toString(), totalPrice);
+	}
 }
 
 public class RentalService {
 	private List<Car> availableCars;
 	private list<Customer> customers;
 	private List<Rental> rentals;
+	
+	public RentalService() {
+		this.cars = new ArrayList<>();
+		this.customers = new ArrayList<>();
+		this.rentals = new ArrayList<>();
+	}
 
-	addCar(car){
+	addCar(Car car){
 		
 	}
 	

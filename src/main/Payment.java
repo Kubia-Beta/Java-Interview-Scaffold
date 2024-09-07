@@ -1,7 +1,7 @@
 ////////////////////////////
-// By:                   //
-// Connor Sculthorpe    //
-// 06 August 2024      //
+// By:					 //
+// Connor Sculthorpe	//
+// 06 August 2024	   //
 // TO: 06 August 2024 //
 ///////////////////////
 
@@ -31,6 +31,6 @@ public class Payment {
 	
 	public String getPaymentInfo() { // https://www.geeksforgeeks.org/java-string-format-method-with-examples/
 		return String.format("Payment ID: %d, Rental ID: %d, Amount: %.2f, Date: %s",
-            paymentId, rental.getRentalId(), amount, paymentDate.toString());
+			paymentId, rental.getRentalId(), amount, paymentDate.toString());
 	}
 }
